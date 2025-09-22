@@ -14,11 +14,7 @@ import com.duoc.atenciones.modelos.Paciente;
 public class PacienteService {
 
     @Autowired
-    private final PacienteRepository pacienteRepository;
-
-    public PacienteService(PacienteRepository pacienteRepository){
-        this.pacienteRepository = pacienteRepository;
-    }
+    private PacienteRepository pacienteRepository;
 
     //Obtener todos los pacientes
     public List<Paciente> obtenerPacientes(){
@@ -47,6 +43,7 @@ public class PacienteService {
             return ResponseEntity.ok(pacienteRepository.save(paciente));
         }).orElse(ResponseEntity.notFound().build());
     }
+
     //Eliminar un paciente por id
     public ResponseEntity<Void> eliminarPaciente(Long id){
         if (pacienteRepository.existsById(id)){
