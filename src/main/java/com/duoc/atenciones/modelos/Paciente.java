@@ -19,7 +19,7 @@ public class Paciente {
     @Column(name= "rut", nullable = false)
     private String rut;
 
-    @Column(name = "fechaNacimiento")
+    @Column(name = "fecha_nacimiento")
     private String fechaNacimiento; // Formato: "yyyy-MM-dd"
 
     @Column(name = "email")
