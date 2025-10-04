@@ -32,7 +32,7 @@ public class PacienteService {
     }
 
     //Editar o modificar un paciente por id
-    public ResponseEntity<Paciente> actualizarPaciente(Long id, Paciente datos){
+    public Paciente actualizarPaciente(Long id, Paciente datos){
         return pacienteRepository.findById(id).map(paciente -> {
             paciente.setNombre(datos.getNombre());
             paciente.setApellido(datos.getApellido());
@@ -41,7 +41,7 @@ public class PacienteService {
             paciente.setEmail(datos.getEmail());
             paciente.setTelefono(datos.getTelefono());
             return ResponseEntity.ok(pacienteRepository.save(paciente));
-        }).orElse(ResponseEntity.notFound().build());
+        }).orElse(ResponseEntity.notFound().build()).getBody();
     }
 
     //Eliminar un paciente por id
