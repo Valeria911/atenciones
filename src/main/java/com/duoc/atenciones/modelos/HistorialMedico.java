@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "historial_medico")
-public class HistorialMedico {
+public class HistorialMedico extends RepresentationModel<HistorialMedico> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,10 +1,11 @@
 package com.duoc.atenciones.modelos;
 
 import jakarta.persistence.*;
+import org.springframework.hateoas.RepresentationModel;
 
 @Entity
 @Table(name= "paciente")
-public class Paciente {
+public class Paciente extends RepresentationModel<Paciente> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +30,15 @@ public class Paciente {
     private String telefono;
 
     public Paciente() {
+    }
+
+    public Paciente(String nombre, String apellido, String rut, String fechaNacimiento, String email, String telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.rut = rut;
+        this.fechaNacimiento = fechaNacimiento;
+        this.email = email;
+        this.telefono = telefono;
     }
 
     public Paciente(Long id, String nombre, String apellido, String rut, String fechaNacimiento, String email, String telefono) {
